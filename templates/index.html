@@ -1,6 +1,8 @@
 <html>
     <head><title>Fruit list</title></head>
     <body>
+        Our first API key is: "{{key_1}}"
+        Our second API key is: "{{ key_2 }}"
         There are {{ fruits | length }} types of fruits.
         <ul>
         {% for fruit in fruits %}
