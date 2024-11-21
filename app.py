@@ -9,15 +9,9 @@ def index():
             {"name": "strawberries", "quantity": 6}
     ]
 
-    filtered_fruits_o = []
-    for fruit in fruits:
-        if fruit.get("name", "").startswith("o"):
-            filtered_fruits_o.append(fruit["name"])
+    filtered_fruits = [
+        fruit for fruit in fruits
+        if fruit["name"].startswith("o") and fruit["quantity"] < 3
+    ]
 
-    more_than_three = []
-    for fruit in fruits:
-        if fruit.get("quantity", 0) > 3:
-            more_than_three.append(fruit["name"])
-
-    return render_template("index.html", fruits=fruits, key_1=keys.MY_SECRET_API_KEY_1, key_2=keys.MY_SECRET_API_KEY_2,)
-    # return render_template("index.html", filtered_fruits_o=filtered_fruits_o)
+    return render_template("index.html", fruits=filtered_fruits, key_1=keys.MY_SECRET_API_KEY_1, key_2=keys.MY_SECRET_API_KEY_2,)
